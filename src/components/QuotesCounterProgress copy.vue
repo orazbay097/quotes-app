@@ -4,7 +4,6 @@
     <div class="progress">
       <div
         class="progress-bar"
-        :class="loading?['progress-bar-animated','progress-bar-striped']:[]"
         role="progressbar"
         :style="`width: ${progressWidth}%`"
         :aria-valuenow="quotes.length"
@@ -18,9 +17,9 @@
 import {mapState} from "vuex"
 export default {
     computed:{
-        ...mapState(["quotes","maxQuotesCount","loading"]),
+        ...mapState(["quotes","maxQuotesCount"]),
         progressWidth(){
-            return this.quotes.length/this.maxQuotesCount*100
+            return 50
         }
     }
 }
