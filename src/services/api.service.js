@@ -8,10 +8,10 @@ export default {
     getAll() {
         return axios.get("")
     },
-    add(text) {
-        return axios.put("", { text })
+    add(text,id) {
+        return axios.put("", { text,id })
     },
-    delete(index) {
-        return axios.delete(index)
+    delete(id) {
+        return axios.delete(String(id))
     }
 }

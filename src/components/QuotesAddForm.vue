@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-3">
+  <div class="mb-5">
     <div class="form-group mx-auto" style="max-width:700px">
       <label for="quoteText">
         <b>Quote</b>
@@ -7,17 +7,21 @@
       <textarea
         id="quoteText"
         class="form-control"
-        :class="{'is-invalid':showValidation&&isTextEmpty}"
+        :class="{'is-invalid':showInputError}"
         placeholder="Type new quote"
         v-model="text"
         :readonly="loading"
+        maxlength="200"
       ></textarea>
-      <div class="invalid-feedback">Should not be empty</div>
+      <div class="row text-area__message mx-0">
+          <div v-if="showInputError" class="col text-danger pl-0">Should not be empty</div>
+          <div class="col pr-0 text-right text-secondary">{{text.length}}/200</div>
+      </div>
     </div>
     <div class="form-group text-center">
       <button
         :disabled="loading"
-        v-on:click.stop.prevent="handleSubmit"
+        @click.stop.prevent="handleSubmit"
         class="btn btn-primary"
       >Add Quote</button>
     </div>
@@ -37,6 +41,9 @@ export default {
       ...mapGetters(["canAddNew"]),
       isTextEmpty(){
           return !this.text;
+      },
+      showInputError(){
+          return this.showValidation && this.isTextEmpty
       }
   },
   methods:{
@@ -66,3 +73,10 @@ export default {
   }
 };
 </script>
+<style>
+.text-area__message{
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+}
+</style>

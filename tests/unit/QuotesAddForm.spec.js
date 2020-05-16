@@ -4,6 +4,8 @@ import QuotesAddForm from '@/components/QuotesAddForm'
 
 let wrapper;
 
+window.alert = ()=>{}
+
 afterEach(() => {
   wrapper.destroy()
 });
