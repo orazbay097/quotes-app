@@ -92,6 +92,9 @@ export default {
   border-color: purple;
   color: #fff;
 }
+.btn-purple:focus{
+    box-shadow: 0 0 0 0.2rem rgba(182, 115, 148, 0.25);
+}
 .btn-purple:not(:disabled):not(.disabled).active, .btn-purple:not(:disabled):not(.disabled):active, .show>.btn-purple.dropdown-toggle {
     color: #fff;
     background-color: #4f065e;
