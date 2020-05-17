@@ -39,8 +39,11 @@ export default {
   computed:{
       ...mapState(["loading"]),
       ...mapGetters(["canAddNew"]),
+      getTrimmedText(){
+          return this.text.trim()
+      },
       isTextEmpty(){
-          return !this.text;
+          return !this.getTrimmedText
       },
       showInputError(){
           return this.showValidation && this.isTextEmpty
@@ -64,7 +67,7 @@ export default {
               return
           }
 
-          if(await this.add(this.text)){
+          if(await this.add(this.getTrimmedText)){
               this.reset()
           }else{
               alert("Oopssss....")
