@@ -6,7 +6,7 @@
         class="progress-bar"
         :class="loading?['progress-bar-animated','progress-bar-striped']:[]"
         role="progressbar"
-        :style="`width: ${progressWidth}%`"
+        :style="`width: ${progressWidth}%;background-color:purple`"
         :aria-valuenow="quotes.length"
         aria-valuemin="0"
         :aria-valuemax="maxQuotesCount"
