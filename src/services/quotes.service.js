@@ -2,7 +2,7 @@ const KEY="quotes";
 
 const getQuotes = ()=>{
     try{
-        return JSON.parse(localStorage.getItem(KEY))
+        return JSON.parse(localStorage.getItem(KEY)||"[]")
     }catch(e){
         return []
     }
