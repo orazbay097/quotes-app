@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import apiService from "@/services/api.service";
+import quotesService from "@/services/quotes.service";
 
 Vue.use(Vuex)
 
@@ -27,34 +27,27 @@ export default new Vuex.Store({
     async getAll({ commit }) {
       try {
         commit("setLoading", true)
-        const res = (await apiService.getAll()).data;
-        commit("setQuotes", res.success ? res.data : [])
+        commit("setQuotes", quotesService.getAll())
       } catch (e) {
         console.log(e)
       } finally {
         commit("setLoading", false)
       }
     },
-    async add({ state, commit }, text) {
+    async add({  commit }, text) {
       try {
         commit("setLoading", true)
-        const p = { text, id: +new Date() }
-        const res = (await apiService.add(p.text,p.id)).data;
-        if (res.success) state.quotes.push(p)
-        return res.success
+        commit("setQuotes",quotesService.add(text,+new Date()))
       } catch (e) {
         console.log(e)
-        return false
       } finally {
         commit("setLoading", false)
       }
     },
-    async delete({ state, commit }, id) {
+    async delete({  commit }, id) {
       try {
         commit("setLoading", true)
-        const res = (await apiService.delete(id)).data;
-        if (res.success) state.quotes.splice(state.quotes.findIndex(quote=>quote.id===id), 1)
-        return res.success
+        commit("setQuotes",quotesService.delete(id))
       } catch (e) {
         console.log(e)
         return false

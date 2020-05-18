@@ -68,11 +68,8 @@ export default {
         return;
       }
 
-      if (await this.add(this.getTrimmedText)) {
-        this.reset();
-      } else {
-        alert("Oopssss....");
-      }
+      await this.add(this.getTrimmedText);
+      this.reset();
     }
   }
 };
@@ -92,15 +89,19 @@ export default {
   border-color: purple;
   color: #fff;
 }
-.btn-purple:focus{
-    box-shadow: 0 0 0 0.2rem rgba(182, 115, 148, 0.25);
+.btn-purple:focus {
+  box-shadow: 0 0 0 0.2rem rgba(182, 115, 148, 0.25);
 }
-.btn-purple:not(:disabled):not(.disabled).active, .btn-purple:not(:disabled):not(.disabled):active, .show>.btn-purple.dropdown-toggle {
-    color: #fff;
-    background-color: #4f065e;
-    border-color: #1d0229;
+.btn-purple:not(:disabled):not(.disabled).active,
+.btn-purple:not(:disabled):not(.disabled):active,
+.show > .btn-purple.dropdown-toggle {
+  color: #fff;
+  background-color: #4f065e;
+  border-color: #1d0229;
 }
-.btn-purple:not(:disabled):not(.disabled).active:focus, .btn-purple:not(:disabled):not(.disabled):active:focus, .show>.btn-purple.dropdown-toggle:focus {
-     box-shadow: 0 0 0 0.2rem rgba(182, 115, 148, 0.25);
+.btn-purple:not(:disabled):not(.disabled).active:focus,
+.btn-purple:not(:disabled):not(.disabled):active:focus,
+.show > .btn-purple.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(182, 115, 148, 0.25);
 }
 </style>
