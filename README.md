@@ -1,4 +1,4 @@
-# quotes-app
+# quotes-app - тестовое задание компании билайн
 [DEMO STAGE](https://orazbay097.github.io/quotes-app/)
 
 ## Project setup
